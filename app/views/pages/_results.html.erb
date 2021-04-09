@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Wikipedia pages for <%= params[:title].titleize %>:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @page_data.each do |k, v| %>
+      <tr>
+        <td><%= "#{k} <a href = '#{v['page_link']}'>Link</a> Word Count: #{v['word_count']}".html_safe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

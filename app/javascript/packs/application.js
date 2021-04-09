@@ -15,3 +15,16 @@ import 'bootstrap'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(document).on("click", ".wiki-table tbody tr", function() {
+  document.getElementById("wiki-results").innerHTML = ("<div class='spinner-border'></div>")
+  var name  = $(this).data("name");
+
+  $.ajax({
+    url: '/pages.js',
+    type: "GET",
+    data: {
+      title: name
+    }
+  });
+});
